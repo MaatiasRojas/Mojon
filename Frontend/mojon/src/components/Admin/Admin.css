@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+.admin-page {
+  --ink: #211F1A;
+  --stone: #d4c498;
+  --moss: #333B29;
+  --moss-dark: #20261A;
+  --wheat: #C9A24B;
+  --wheat-light: #E4C77E;
+  --clay: #95513B;
+  --sage: #8B9678;
+
+  min-height: 100vh;
+  background: var(--moss-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.admin-login,
+.admin-card {
+  background: #FBF7EC;
+  border-radius: 8px;
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(32, 38, 26, 0.35);
+  border: 1px solid rgba(201, 162, 75, 0.25);
+}
+
+.admin-page--ancho {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.admin-card--tabla {
+  max-width: 560px;
+}
+
+.admin-login h1,
+.admin-card h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: var(--ink);
+  margin: 0 0 1.2rem;
+}
+
+.admin-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #5A5747;
+  margin: 0 0 1.2rem;
+}
+
+.admin-login label {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--clay);
+  margin-bottom: 0.5rem;
+}
+
+.admin-login input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(51, 59, 41, 0.25);
+  background: #FFFDF7;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  font-family: 'Work Sans', sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-login input:focus {
+  outline: none;
+  border-color: var(--wheat);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
+}
+
+.admin-login button,
+.admin-card button {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--moss);
+  background: var(--moss);
+  color: #F6F1E4;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.admin-login button:hover,
+.admin-card button:hover {
+  background: var(--wheat);
+  border-color: var(--wheat);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.admin-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.admin-card-header h1 {
+  margin: 0;
+}
+
+.admin-logout {
+  width: auto;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(51, 59, 41, 0.3);
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-logout:hover {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: #F6F1E4;
+  transform: none;
+}
+
+.admin-mensaje {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--clay);
+  background: rgba(149, 81, 59, 0.08);
+  border: 1px solid rgba(149, 81, 59, 0.25);
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  margin: 0 0 1.2rem;
+}
+
+/* ---------------- tabla de reservas ---------------- */
+.admin-vacio {
+  font-size: 0.9rem;
+  color: #8A8672;
+  font-style: italic;
+}
+
+.admin-tabla-wrap {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(51, 59, 41, 0.15);
+}
+
+.admin-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+.admin-tabla thead {
+  background: var(--moss);
+}
+
+.admin-tabla th {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F1EEE2;
+  font-weight: 700;
+}
+
+.admin-tabla td {
+  padding: 0.6rem 0.9rem;
+  border-top: 1px solid rgba(51, 59, 41, 0.12);
+  color: var(--ink);
+}
+
+.admin-tabla tbody tr:hover {
+  background: rgba(201, 162, 75, 0.08);
+}
+
+.admin-tabla input {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(51, 59, 41, 0.2);
+  background: #FFFDF7;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.88rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-tabla input:focus {
+  outline: none;
+  border-color: var(--wheat);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
+}
+
+.admin-tabla-select {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(51, 59, 41, 0.2);
+  background: #FFFDF7;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-tabla-select:focus {
+  outline: none;
+  border-color: var(--wheat);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
+}
+
+.admin-tabla-monto {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--wheat);
+  background: #FFFDF7;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.88rem;
+}
+
+.admin-tabla-monto:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
+}
+
+.admin-tabla-liberar {
+  width: auto;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--clay);
+  background: transparent;
+  color: var(--clay);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-tabla-liberar:hover {
+  background: var(--clay);
+  color: #F6F1E4;
+  transform: none;
+}
+
+.admin-tabla-acciones {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.admin-tabla-cliente {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.admin-tabla-sin-nombre {
+  color: #9B9782;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.admin-tabla-editar,
+.admin-tabla-guardar,
+.admin-tabla-cancelar {
+  width: auto;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-tabla-editar {
+  border: 1px solid var(--wheat);
+  background: transparent;
+  color: var(--clay);
+}
+
+.admin-tabla-editar:hover {
+  background: var(--wheat);
+  color: var(--ink);
+  transform: none;
+}
+
+.admin-tabla-guardar {
+  border: 1px solid var(--moss);
+  background: var(--moss);
+  color: #F6F1E4;
+}
+
+.admin-tabla-guardar:hover {
+  background: var(--wheat);
+  border-color: var(--wheat);
+  color: var(--ink);
+  transform: none;
+}
+
+.admin-tabla-cancelar {
+  border: 1px solid rgba(51, 59, 41, 0.3);
+  background: transparent;
+  color: #6B6858;
+}
+
+.admin-tabla-cancelar:hover {
+  background: rgba(51, 59, 41, 0.08);
+  transform: none;
+}
+
+@media (max-width: 480px) {
+  .admin-login,
+  .admin-card {
+    padding: 1.8rem;
+  }
+}

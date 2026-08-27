@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+/* ---------------------------------------------------------
+  Tokens compartidos con Mojon.css. Se redeclaran acá para
+  que el calendario funcione standalone, se use donde se use.
+--------------------------------------------------------- */
+.cal {
+  --ink: #211F1A;
+  --stone: #d4c498;
+  --moss: #333B29;
+  --moss-dark: #20261A;
+  --wheat: #C9A24B;
+  --wheat-light: #E4C77E;
+  --clay: #95513B;
+  --sage: #8B9678;
+
+  background: var(--moss-dark);
+  border-radius: 6px;
+  padding: 30px 26px;
+  font-family: 'Work Sans', sans-serif;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ---------------- header: mes + flechas ---------------- */
+.cal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.cal__mes {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  color: #F6F1E4;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.cal__nav {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--wheat);
+  background: transparent;
+  color: #F6F1E4;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.cal__nav:hover:not(:disabled) {
+  background: var(--wheat);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.cal__nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #5C6350;
+}
+
+/* ---------------- grilla ---------------- */
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.cal__grid--dias {
+  margin-bottom: 10px;
+}
+
+.cal__dia-nombre {
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #8A8672;
+}
+
+.cal__celda {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13px;
+  color: #E4DFCF;
+  background: transparent;
+  border: 1px solid rgba(201, 162, 75, 0.33);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.cal__celda:hover:not(:disabled) {
+  border-color: var(--wheat);
+  transform: translateY(-1px);
+}
+
+.cal__celda--vacia {
+  border: none;
+  cursor: default;
+  background: transparent;
+}
+
+.cal__celda--ocupada {
+  background: #fa0000;
+  border-color: transparent;
+  color: #fdfdfd;
+}
+
+.cal__celda--deshabilitada {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.cal__celda--deshabilitada:hover {
+  transform: none;
+  border-color: rgba(201, 162, 75, 0.33);
+}
+
+.cal__celda--ocupada.cal__celda--deshabilitada {
+  border-color: transparent;
+}
+
+.cal__celda--seleccionada {
+  background: var(--clay);
+  border-color: transparent;
+  color: #F6F1E4;
+  font-weight: 600;
+}
+
+/* ---------------- referencias / leyenda ---------------- */
+.cal__referencias {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-size: 12.5px;
+  color: #B9B49F;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.cal__referencias span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cal__punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.cal__punto--libre {
+  border: 1px solid var(--wheat);
+}
+
+.cal__punto--ocupada {
+  background: #2A3121;
+}
+
+.cal__punto--seleccionada {
+  background: var(--clay);
+}
+
+@media (max-width: 480px) {
+  .cal {
+    padding: 22px 16px;
+  }
+  .cal__celda {
+    font-size: 12px;
+  }
+}

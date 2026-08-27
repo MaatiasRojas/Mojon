@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+.disp-page {
+  --ink: #211F1A;
+  --stone: #d4c498;
+  --stone-dark: #E7DEC9;
+  --moss: #333B29;
+  --moss-dark: #20261A;
+  --wheat: #C9A24B;
+  --wheat-light: #E4C77E;
+  --clay: #95513B;
+  --sage: #8B9678;
+
+  min-height: 100vh;
+  background: var(--stone);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- divisor de sierra (mismo elemento de Casa.jsx) ---------------- */
+.cdc-hill {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cdc-hill--flip { transform: scaleX(-1); }
+.cdc-hill svg {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.disp-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 50px 6% 70px;
+}
+
+.disp-card {
+  width: 100%;
+  max-width: 520px;
+  background: #FBF7EC;
+  border-radius: 8px;
+  padding: 46px 40px 40px;
+  box-shadow: 0 20px 40px rgba(32, 38, 26, 0.12);
+  text-align: center;
+}
+
+.disp-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.disp-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+
+.disp-subtitle {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #5A5747;
+  margin: 0 0 32px;
+}
+
+/* ---------------- estados ---------------- */
+.disp-estado {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  color: #6B6858;
+  margin-bottom: 24px;
+}
+
+.disp-estado--error {
+  color: var(--clay);
+}
+
+/* ---------------- fecha elegida ---------------- */
+.disp-seleccion {
+  margin-top: 24px;
+  font-size: 15px;
+  color: #4c414b;
+}
+
+.disp-seleccion strong {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--clay);
+  text-transform: capitalize;
+}
+
+/* ---------------- CTA whatsapp ---------------- */
+.disp-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: 1px solid var(--moss);
+  background: var(--moss);
+  color: #F6F1E4;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(32, 38, 26, 0.16);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.disp-whatsapp:hover,
+.disp-whatsapp:focus-visible {
+  background: var(--wheat);
+  border-color: var(--wheat);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.disp-whatsapp--simple {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--moss);
+  box-shadow: none;
+}
+
+.disp-whatsapp--simple:hover,
+.disp-whatsapp--simple:focus-visible {
+  background: var(--moss);
+  color: #F6F1E4;
+}
+
+.disp-volver {
+  display: block;
+  margin: 16px auto 0;
+  padding: 10px 24px;
+  border: 1px solid var(--moss);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--moss);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.disp-volver:hover,
+.disp-volver:focus-visible {
+  background: var(--moss);
+  color: #F6F1E4;
+  transform: translateY(-1px);
+}
+
+.disp-volver:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .disp-page {
+    padding: 0 5% 50px;
+  }
+  .disp-page > .cdc-hill {
+    width: calc(100% + 10.52%);
+    height: 34px;
+    margin-left: -5.26%;
+  }
+  .disp-card {
+    padding: 34px 22px 30px;
+  }
+  .disp-title {
+    font-size: 25px;
+  }
+}
