@@ -1,0 +1,33 @@
+// Empezamos con SQLite porque no requiere ningún servicio externo.
+// El día de la definicion del hosting, para pasar a PostgreSQL solo hay
+// que cambiar "provider" acá abajo a "postgresql" y DATABASE_URL en
+// el .env — el resto del código (rutas, prisma client) no cambia.
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model FechaOcupada {
+  id       Int      @id @default(autoincrement())
+  fecha    String   @unique // formato "YYYY-MM-DD"
+  motivo   String? // opcional: "reserva", "mantenimiento", etc.
+  cliente  String?
+  sena     Boolean  @default(false)
+  montoSena Float?
+  pago     Boolean  @default(false)
+  montoPago Float?
+  creadoEn DateTime @default(now())
+}
+
+// Solo va a existir UN registro acá — es intencional, es un único admin.
+// La seguridad de "que entre una sola persona" pasa por vos ser el único
+// que conoce la contraseña, no por permitir múltiples cuentas.
+model Admin {
+  id           Int      @id @default(autoincrement())
+  passwordHash String
+  creadoEn     DateTime @default(now())
+}
