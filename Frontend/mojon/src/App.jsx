@@ -4,8 +4,8 @@ import Casa from './components/Casa/Casa'
 import Disponibilidad from './components/Disponibilidad/Disponibilidad'
 import Calendario from './components/Calendario/Calendario'
 import Admin from './components/Admin/Admin'
-import Privacidad from '../Public/Privacidad'
-import Terminos from '../Public/Terminos'
+import Privacidad from '../public/Privacidad'
+import Terminos from '../public/Terminos'
 
 import './App.css'
 
