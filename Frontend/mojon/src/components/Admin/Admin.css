@@ -387,6 +387,7 @@
 }
 
 .admin-nueva-reserva-fechas {
+  color-scheme: light; 
   font-family: 'Segoe UI', Arial, sans-serif;
   font-style: normal;
   font-size: 1.5rem;
