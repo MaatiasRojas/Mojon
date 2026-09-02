@@ -5,7 +5,9 @@ const cors = require('cors')
 const helmet = require('helmet')
 
 const fechasOcupadasRoutes = require('./routes/fechasOcupadas.routes')
+const reservasRoutes = require('./routes/reservas.routes')
 const adminRoutes = require('./routes/admin.routes')
+const googleRoutes = require('./routes/google.routes')
 
 const app = express()
 
@@ -34,12 +36,14 @@ app.use(express.json())
 
 app.get('/api/health', (req, res) => res.json({ ok: true }))
 app.use('/api/fechas-ocupadas', fechasOcupadasRoutes)
+app.use('/api/reservas', reservasRoutes)
 app.use('/api/admin', adminRoutes)
+app.use('/api/admin/google', googleRoutes)
 
 // Manejador de errores genérico (por si algo se escapa de los try/catch).
-app.use((err, res) => {
+app.use((err, req, res, next) => {
   console.error(err)
-  res.status(500).json({ error: 'Error interno del servidor.' })
+  res.status(500).json({ error: 'Error interno del servidor.', errorMessage: err.message })
 })
 
 const PORT = process.env.PORT || 3001

@@ -109,6 +109,10 @@
   transform: translateY(-1px);
 }
 
+.admin-login .admin-volver {
+  margin-top: 0.75rem;
+}
+
 .admin-card-header {
   display: flex;
   align-items: center;
@@ -139,6 +143,52 @@
   background: var(--moss);
   border-color: var(--moss);
   color: #F6F1E4;
+  transform: none;
+}
+
+/* ---------------- estado de Google Calendar ---------------- */
+.admin-google-estado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 1.2rem;
+  border-radius: 8px;
+  background: rgba(51, 59, 41, 0.05);
+  border: 1px solid rgba(51, 59, 41, 0.12);
+}
+
+.admin-google-badge {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.82rem;
+  color: #8A8672;
+}
+
+.admin-google-badge--ok {
+  color: var(--moss);
+  font-weight: 600;
+}
+
+.admin-google-btn {
+  width: auto;
+  white-space: nowrap;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--wheat);
+  background: transparent;
+  color: var(--clay);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-google-btn:hover {
+  background: var(--wheat);
+  color: var(--ink);
   transform: none;
 }
 
@@ -214,42 +264,6 @@
 .admin-tabla input:focus {
   outline: none;
   border-color: var(--wheat);
-  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
-}
-
-.admin-tabla-select {
-  width: 100%;
-  padding: 0.45rem 0.6rem;
-  border-radius: 6px;
-  border: 1px solid rgba(51, 59, 41, 0.2);
-  background: #FFFDF7;
-  color: var(--ink);
-  font-family: 'Work Sans', sans-serif;
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.admin-tabla-select:focus {
-  outline: none;
-  border-color: var(--wheat);
-  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
-}
-
-.admin-tabla-monto {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.45rem 0.6rem;
-  border-radius: 6px;
-  border: 1px solid var(--wheat);
-  background: #FFFDF7;
-  color: var(--ink);
-  font-family: 'Work Sans', sans-serif;
-  font-size: 0.88rem;
-}
-
-.admin-tabla-monto:focus {
-  outline: none;
   box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
 }
 
@@ -339,6 +353,75 @@
 .admin-tabla-cancelar:hover {
   background: rgba(51, 59, 41, 0.08);
   transform: none;
+}
+
+.admin-tabla-monto {
+  width: 90px;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(201, 162, 75, 0.5);
+  background: #FFFDF7;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.85rem;
+}
+
+.admin-tabla-select {
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(51, 59, 41, 0.2);
+  background: #FFFDF7;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* ---------------- panel de nueva reserva (bajo el calendario) ---------------- */
+.admin-nueva-reserva {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(201, 162, 75, 0.1);
+  border: 1px solid rgba(201, 162, 75, 0.35);
+}
+
+.admin-nueva-reserva-fechas {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-style: normal;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #000000;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.admin-nueva-reserva input[type='text'] {
+  width: 100%;
+  padding: 0.6rem 0.1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(51, 59, 41, 0.2);
+  background: #FFFDF7;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.admin-nueva-reserva input[type='text']:focus {
+  outline: none;
+  border-color: var(--wheat);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
+}
+
+.admin-nueva-reserva-acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-nueva-reserva-acciones button {
+  width: auto;
+  flex: 1;
 }
 
 @media (max-width: 480px) {

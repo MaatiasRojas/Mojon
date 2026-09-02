@@ -4,24 +4,19 @@ import { useNavigate } from "react-router-dom";
 
 import "./Mojon.css";
 import HillDivider from "../HillDivider";
-import CampoCasa from "../../../public/Casa 1.jpeg";
-import Comedor1 from "../../../public/Comedor.jpeg";
-import Comedor2 from "../../../public/Comedor 2.jpeg";
-import Galeria from "../../../public/Galeria.jpeg";
-import Habitacion1 from "../../../public/Habitacion 1.jpeg";
-import Living from "../../../public/Living.jpeg";
-import VideoRio from "../../../public/Video Rio.mp4";
-import VideoRio2 from "../../../public/Video Rio 2.mp4";
-// TODO: subí el video del dique a /public con este nombre (o cambiá el nombre acá).
-import FotoDique from "../../../public/Foto Dique.jpg";
+import CampoCasa from "../../assets/Casa 1.jpeg";
+import Comedor1 from "../../assets/Comedor.jpeg";
+import Comedor2 from "../../assets/Comedor 2.jpeg";
+import Galeria from "../../assets/Galeria.jpeg";
+import Habitacion1 from "../../assets/Habitacion 1.jpeg";
+import Living from "../../assets/Living.jpeg";
+import VideoRio from "../../assets/Video Rio.mp4";
+import VideoRio2 from "../../assets/Video Rio 2.mp4";
+import FotoDique from "../../assets/Foto Dique.jpg";
 
-// Coordenadas reales (resueltas desde los links de Google Maps que pasaste).
 const CASA_LAT = -28.6263484;
 const CASA_LNG = -65.3568873;
 
-// "Dique El Bolsón". Distancia calculada en línea recta (~7.9km) con un
-// margen por curvas de ruta. Confirmá el tiempo real manejando una vez —
-// esto es una estimación, no un dato medido.
 const DIQUE_NOMBRE = "el Dique El Bolsón";
 const DIQUE_DISTANCIA_KM = "10";
 const DIQUE_DISTANCIA_MIN = "15";
@@ -136,8 +131,12 @@ function Casa() {
             <button className="cdc-btn" onClick={() => scrollTo("casa")}>
               Conocer la casa
             </button>
-            <button className="cdc-btn" onClick={() => navigate("/disponibilidad")}>
-              ALQUILA AHORA!!
+            <button
+              className="cdc-btn cdc-btn--alquila"
+              onClick={() => navigate("/disponibilidad")}
+              style={{ backgroundColor: 'red', color: 'white' }}
+            >
+              👉 ALQUILA !!
             </button>
             <div className="cdc-hero-stats">
               <span className="cdc-stat">
@@ -231,11 +230,11 @@ function Casa() {
 
         <div className="cdc-booking-cta">
           <button
-            className="cdc-btn cdc-btn--booking"
-            type="button"
-            onClick={() => navigate("/disponibilidad")}
+              className="cdc-btn cdc-btn--alquila"
+              onClick={() => navigate("/disponibilidad")}
+              style={{ backgroundColor: 'red', color: 'white' }}
           >
-            ALQUILA AHORA!!
+            👉 ALQUILA !!
           </button>
         </div>
 
@@ -350,8 +349,12 @@ function Casa() {
         </div>
 
         <div className="cdc-booking-cta">
-          <button className="cdc-btn" type="button" onClick={() => navigate("/disponibilidad")}>
-            ALQUILA AHORA!!
+          <button
+              className="cdc-btn cdc-btn--alquila"
+              onClick={() => navigate("/disponibilidad")}
+              style={{ backgroundColor: 'red', color: 'white' }}
+          >
+            👉 ALQUILA !!
           </button>
         </div>
       </section>

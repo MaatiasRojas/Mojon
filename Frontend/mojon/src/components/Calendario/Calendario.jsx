@@ -1,41 +1,25 @@
 import { useState } from 'react'
+import { DIAS, MESES, aFecha, generarDiasDelMes } from '../../utils/fechas'
 import './Calendario.css'
 
-const DIAS = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-const MESES = [
-  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
-]
-
-function aClaveFecha(date) {
-  const y = date.getFullYear()
-  const m = String(date.getMonth() + 1).padStart(2, '0')
-  const d = String(date.getDate()).padStart(2, '0')
-  return `${y}-${m}-${d}`
-}
-
-function generarDiasDelMes(anio, mes) {
-  const primerDia = new Date(anio, mes, 1)
-  const ultimoDia = new Date(anio, mes + 1, 0)
-  // getDay(): 0=domingo..6=sábado -> lo corremos para que la semana arranque el lunes
-  const offset = (primerDia.getDay() + 6) % 7
-
-  const dias = []
-  for (let i = 0; i < offset; i++) dias.push(null)
-  for (let d = 1; d <= ultimoDia.getDate(); d++) dias.push(new Date(anio, mes, d))
-  return dias
-}
-
 /**
- * Calendario de disponibilidad.
- * - modoAdmin=false (default): fechas pasadas y ocupadas no se pueden tocar.
- * - modoAdmin=true: las fechas ocupadas también son clickeables (para liberarlas).
+ * Calendario de selección de rango, estilo Airbnb:
+ * - Primer click: marca el día de inicio.
+ * - Segundo click: marca el día de fin y completa el rango.
+ * - Click en un día anterior al inicio: reinicia el rango desde ahí.
+ * - Mientras solo hay inicio, al pasar el mouse se previsualiza el rango.
+ *
+ * El estado del rango (rangoInicio/rangoFin) lo controla el componente
+ * padre (Admin o Disponibilidad) — este componente solo dispara
+ * onSeleccionarDia(clave) y el padre decide, con calcularNuevoRango,
+ * cuál es el nuevo rango.
  */
-export default function Calendario({ ocupadas, seleccionada, onSeleccionar, modoAdmin = false }) {
+export default function Calendario({ ocupadas, rangoInicio, rangoFin, onSeleccionarDia }) {
   const hoy = new Date()
   hoy.setHours(0, 0, 0, 0)
 
   const [vista, setVista] = useState(new Date(hoy.getFullYear(), hoy.getMonth(), 1))
+  const [diaHover, setDiaHover] = useState(null)
 
   const dias = generarDiasDelMes(vista.getFullYear(), vista.getMonth())
   const esMesActual = vista.getFullYear() === hoy.getFullYear() && vista.getMonth() === hoy.getMonth()
@@ -49,8 +33,10 @@ export default function Calendario({ ocupadas, seleccionada, onSeleccionar, modo
     setVista(new Date(vista.getFullYear(), vista.getMonth() + 1, 1))
   }
 
+  const seleccionandoFin = Boolean(rangoInicio) && !rangoFin
+
   return (
-    <div className="cal">
+    <div className="cal" onMouseLeave={() => setDiaHover(null)}>
       <div className="cal__header">
         <button
           type="button"
@@ -79,23 +65,33 @@ export default function Calendario({ ocupadas, seleccionada, onSeleccionar, modo
         {dias.map((fecha, i) => {
           if (!fecha) return <span key={`vacio-${i}`} className="cal__celda cal__celda--vacia" />
 
-          const clave = aClaveFecha(fecha)
+          const clave = aFecha(fecha)
           const esPasado = fecha < hoy
           const estaOcupada = ocupadas.has(clave)
-          const estaSeleccionada = seleccionada === clave
-          const deshabilitada = esPasado || (estaOcupada && !modoAdmin)
+          const deshabilitada = esPasado || estaOcupada
+
+          const esInicio = clave === rangoInicio
+          const esFin = Boolean(rangoFin) && clave === rangoFin && clave !== rangoInicio
+          const enRangoConfirmado =
+            rangoInicio && rangoFin && clave > rangoInicio && clave < rangoFin
+          const enRangoPreview =
+            seleccionandoFin && diaHover && clave > rangoInicio && clave <= diaHover && !deshabilitada
 
           return (
             <button
               key={clave}
               type="button"
               disabled={deshabilitada}
-              onClick={() => onSeleccionar(clave)}
+              onClick={() => onSeleccionarDia(clave)}
+              onMouseEnter={() => seleccionandoFin && setDiaHover(clave)}
               className={[
                 'cal__celda',
                 estaOcupada ? 'cal__celda--ocupada' : '',
                 deshabilitada ? 'cal__celda--deshabilitada' : '',
-                estaSeleccionada ? 'cal__celda--seleccionada' : '',
+                esInicio ? 'cal__celda--inicio' : '',
+                esFin ? 'cal__celda--fin' : '',
+                enRangoConfirmado ? 'cal__celda--en-rango' : '',
+                enRangoPreview ? 'cal__celda--preview' : '',
               ].join(' ').trim()}
             >
               {fecha.getDate()}

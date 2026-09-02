@@ -93,16 +93,37 @@
 /* ---------------- fecha elegida ---------------- */
 .disp-seleccion {
   margin-top: 24px;
-  font-size: 15px;
-  color: #4c414b;
+  font-size: 18px;
+  color: #1A1A1A;
 }
 
 .disp-seleccion strong {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-weight: 500;
-  color: var(--clay);
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--ink);
   text-transform: capitalize;
+}
+
+.disp-reiniciar {
+  display: block;
+  margin: 16px auto 0;
+  background-color: #F5F5F3;
+  border: 1px solid #767676;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: #1A1A1A;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.disp-reiniciar:hover {
+  color: var(--clay);
 }
 
 /* ---------------- CTA whatsapp ---------------- */
@@ -148,38 +169,29 @@
 
 .disp-volver {
   display: block;
-  margin: 16px auto 0;
-  padding: 10px 24px;
-  border: 1px solid var(--moss);
+  margin: 14px auto 0;
+  padding: 10px 20px;
+  border: 1px solid rgba(51, 59, 41, 0.35);
   border-radius: 999px;
   background: transparent;
-  color: var(--moss);
+  color: var(--ink);
   font-family: 'Work Sans', sans-serif;
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .disp-volver:hover,
 .disp-volver:focus-visible {
-  background: var(--moss);
-  color: #F6F1E4;
-  transform: translateY(-1px);
-}
-
-.disp-volver:focus-visible {
-  outline: 2px solid var(--clay);
-  outline-offset: 3px;
+  background: var(--stone-dark);
+  border-color: var(--moss);
+  color: var(--moss-dark);
 }
 
 @media (max-width: 560px) {
   .disp-page {
-    padding: 0 5% 50px;
-  }
-  .disp-page > .cdc-hill {
-    width: calc(100% + 10.52%);
-    height: 34px;
-    margin-left: -5.26%;
+    padding: 70px 5% 50px;
   }
   .disp-card {
     padding: 34px 22px 30px;

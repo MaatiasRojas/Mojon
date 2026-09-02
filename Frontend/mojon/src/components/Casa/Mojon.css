@@ -105,6 +105,20 @@
   outline-offset: 3px;
 }
 
+.cdc-btn--alquila {
+  padding: 17px 38px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 10px 24px rgba(32, 38, 26, 0.24);
+}
+
+.cdc-btn--alquila:hover,
+.cdc-btn--alquila:focus-visible {
+  box-shadow: 0 12px 28px rgba(32, 38, 26, 0.32);
+  transform: translateY(-2px) scale(1.02);
+}
+
 .cdc-navlink {
   font-family: 'Work Sans', sans-serif;
   font-size: 14px;

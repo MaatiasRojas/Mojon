@@ -110,9 +110,9 @@
 }
 
 .cal__celda--ocupada {
-  background: #fa0000;
+  background: #2A3121;
   border-color: transparent;
-  color: #fdfdfd;
+  color: #61604F;
 }
 
 .cal__celda--deshabilitada {
@@ -134,6 +134,26 @@
   border-color: transparent;
   color: #F6F1E4;
   font-weight: 600;
+}
+
+/* ---------------- selección de rango ---------------- */
+.cal__celda--inicio,
+.cal__celda--fin {
+  background: var(--clay);
+  border-color: transparent;
+  color: #F6F1E4;
+  font-weight: 600;
+}
+
+.cal__celda--en-rango {
+  background: rgba(201, 162, 75, 0.22);
+  border-color: transparent;
+  color: #F6F1E4;
+}
+
+.cal__celda--preview {
+  background: rgba(201, 162, 75, 0.12);
+  border: 1px dashed var(--wheat);
 }
 
 /* ---------------- referencias / leyenda ---------------- */
@@ -165,7 +185,7 @@
 }
 
 .cal__punto--ocupada {
-  background: #2A3121;
+  background: #ff0000;
 }
 
 .cal__punto--seleccionada {

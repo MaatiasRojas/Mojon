@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+.legal-page {
+  --ink: #211F1A;
+  --stone: #d4c498;
+  --moss: #333B29;
+  --clay: #95513B;
+
+  min-height: 100vh;
+  background: #FBF7EC;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  padding: 60px 6% 80px;
+}
+
+.legal-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.legal-volver {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: var(--clay);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.legal-volver:hover {
+  text-decoration: underline;
+}
+
+.legal-content h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+
+.legal-content .legal-fecha {
+  font-size: 13px;
+  color: #8A8672;
+  margin: 0 0 36px;
+}
+
+.legal-content h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 32px 0 12px;
+}
+
+.legal-content p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4C4A41;
+  margin: 0 0 14px;
+}
+
+.legal-content ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+}
+
+.legal-content li {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4C4A41;
+  margin-bottom: 6px;
+}
+
+.legal-content a {
+  color: var(--clay);
+}
