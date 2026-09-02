@@ -379,6 +379,7 @@
 
 /* ---------------- panel de nueva reserva (bajo el calendario) ---------------- */
 .admin-nueva-reserva {
+  color-scheme: light; 
   margin-top: 20px;
   padding: 16px;
   border-radius: 8px;
