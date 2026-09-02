@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import Calendario from '../Calendario/Calendario'
-import HillDivider from '../HillDivider'
 import { calcularNuevoRango, conflictoRango, formatearRangoLegible } from '../../utils/fechas'
 import './Disponibilidad.css'
 
@@ -83,7 +82,6 @@ export default function Disponibilidad() {
 
   return (
     <div className="disp-page">
-      <HillDivider from="#20261A" to="#d4c498" flip />
 
       <div className="disp-content">
         <div className="disp-card">
@@ -140,7 +138,6 @@ export default function Disponibilidad() {
         </div>
       </div>
 
-      <HillDivider from="#d4c498" to="#20261A" />
     </div>
   )
 }
