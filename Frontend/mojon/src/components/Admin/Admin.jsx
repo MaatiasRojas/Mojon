@@ -411,7 +411,7 @@ export default function Admin() {
         />
 
         {rangoInicio && (
-          <div className="admin-nueva-reserva">
+          <div className="admin-nueva-reserva" translate = 'no'>
             <p className="admin-nueva-reserva-fechas">
               {formatearRangoLegible(rangoInicio, rangoFin || rangoInicio)}
               {!rangoFin && ' (elegí el día de salida)'}
