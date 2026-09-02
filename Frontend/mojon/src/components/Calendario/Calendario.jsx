@@ -73,7 +73,7 @@ export default function Calendario({ ocupadas, rangoInicio, rangoFin, onSeleccio
           const esInicio = clave === rangoInicio
           const esFin = Boolean(rangoFin) && clave === rangoFin && clave !== rangoInicio
           const enRangoConfirmado =
-            rangoInicio && rangoFin && clave > rangoInicio && clave < rangoFin
+            rangoInicio && rangoFin && clave > rangoInicio && clave < rangoFin && !estaOcupada
           const enRangoPreview =
             seleccionandoFin && diaHover && clave > rangoInicio && clave <= diaHover && !deshabilitada
 

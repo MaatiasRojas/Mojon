@@ -129,6 +129,12 @@
   border-color: transparent;
 }
 
+.cal__celda--ocupada.cal__celda--en-rango {
+  background: #ff0000;
+  border-color: transparent;
+  color: #050505;
+}
+
 .cal__celda--seleccionada {
   background: var(--clay);
   border-color: transparent;

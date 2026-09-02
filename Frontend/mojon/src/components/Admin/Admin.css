@@ -86,8 +86,8 @@
   box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.2);
 }
 
-.admin-login button,
-.admin-card button {
+.admin-login button:not(.cal__celda),
+.admin-card button:not(.cal__celda) {
   width: 100%;
   padding: 0.85rem;
   border-radius: 999px;
@@ -101,8 +101,8 @@
   transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
-.admin-login button:hover,
-.admin-card button:hover {
+.admin-login button:hover:not(.cal__celda),
+.admin-card button:hover:not(.cal__celda) {
   background: var(--wheat);
   border-color: var(--wheat);
   color: var(--ink);
