@@ -110,9 +110,9 @@
 }
 
 .cal__celda--ocupada {
-  background: #2A3121;
+  background: #ff0000;
   border-color: transparent;
-  color: #61604F;
+  color: #ff0000;
 }
 
 .cal__celda--deshabilitada {
