@@ -1,2 +1,10 @@
 # Mojon
-Proyecto de pagina para la casa de campo del mojon. Lugar donde se puede solicitar dias para la estadia y registrar los turnos como ocupados con sus respectivos datos.
+## Alquiler de Campo Temporario
+
+Plataforma web para publicación y gestión de alquileres de campos.
+
+🔗 [Ver sitio en vivo](https://mojon.vercel.app)
+
+**Stack**: Vercel (hosting), Neon (PostgreSQL serverless)
+
+Este proyecto está en producción y en uso activo.
